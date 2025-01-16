@@ -2,7 +2,7 @@ import yfinance as yf
 import pandas as pd
 import os
 
-DATA_DIR = "./data"
+DATA_DIR = "./data/raw"
 
 os.makedirs(DATA_DIR, exist_ok=True)
 

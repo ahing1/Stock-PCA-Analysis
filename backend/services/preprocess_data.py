@@ -2,7 +2,7 @@ import os
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-DATA_DIR = "./data"
+DATA_DIR = "./data/raw"
 PROCESSED_DATA_DIR = "./data/processed"
 
 os.makedirs(PROCESSED_DATA_DIR, exist_ok=True)
