@@ -6,39 +6,39 @@ import VisualizationViewer from "./components/Visualization";
 
 const App = () => {
     return (
-      <Router>
-      <div className="bg-gray-100 min-h-screen">
-          {/* Navigation Bar */}
-          <nav className="bg-blue-600 p-4 text-white shadow">
-              <ul className="flex space-x-4">
-                  <li>
-                      <Link to="/" className="hover:underline">
-                          Upload File
-                      </Link>
-                  </li>
-                  <li>
-                      <Link to="/run-analysis" className="hover:underline">
-                          Run Analysis
-                      </Link>
-                  </li>
-                  <li>
-                      <Link to="/visualizations" className="hover:underline">
-                          View Visualizations
-                      </Link>
-                  </li>
-              </ul>
-          </nav>
+        <Router>
+            <div className="bg-gray-100 min-h-screen">
+                {/* Navigation Bar */}
+                <nav className="bg-blue-600 p-4 text-white shadow">
+                    <ul className="flex space-x-4">
+                        <li>
+                            <Link to="/" className="hover:underline">
+                                Upload File
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/run-analysis" className="hover:underline">
+                                Run Analysis
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/visualizations" className="hover:underline">
+                                View Visualizations
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
 
-          {/* Main Content */}
-          <div className="container mx-auto py-8">
-              <Routes>
-                  <Route path="/" element={<FileUpload />} />
-                  <Route path="/run-analysis" element={<RunAnalysis />} />
-                  <Route path="/visualizations" element={<VisualizationViewer />} />
-              </Routes>
-          </div>
-      </div>
-  </Router>
+                {/* Main Content */}
+                <div className="container mx-auto py-8">
+                    <Routes>
+                        <Route path="/" element={<FileUpload />} />
+                        <Route path="/run-analysis" element={<RunAnalysis />} />
+                        <Route path="/visualizations" element={<VisualizationViewer />} />
+                    </Routes>
+                </div>
+            </div>
+        </Router>
     );
 };
 

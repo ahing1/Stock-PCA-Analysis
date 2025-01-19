@@ -49,6 +49,8 @@ def optimize_portfolio_for_file(file_path):
 
     # Load clustered data
     df = pd.read_csv(file_path)
+    print("filepath", file_path)
+    print("columns", df.columns)
 
     # Group by cluster and calculate mean returns and covariance matrix
     grouped_df = df.groupby('cluster').mean()

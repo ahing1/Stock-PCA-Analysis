@@ -3,10 +3,11 @@ import React, { useState } from "react";
 const VisualizationViewer = () => {
     const [fileName, setFileName] = useState("");
 
+    // Construct URLs to fetch images from the backend
     const visualizationUrls = [
-        `${fileName}_2D.png`,
-        `${fileName}_3D.png`,
-        `${fileName}_Portfolio.png`,
+        `http://127.0.0.1:5000/visualizations/${fileName}_2D.png`,
+        `http://127.0.0.1:5000/visualizations/${fileName}_3D.png`,
+        `http://127.0.0.1:5000/visualizations/${fileName}_Portfolio.png`,
     ];
 
     return (
@@ -19,16 +20,24 @@ const VisualizationViewer = () => {
                 onChange={(e) => setFileName(e.target.value)}
                 className="block w-full p-2 border border-gray-300 rounded mb-4"
             />
-            {fileName &&
-                visualizationUrls.map((url, index) => (
-                    <img
-                        key={index}
-                        src={`/visualizations/${url}`}
-                        alt={`Visualization ${index}`}
-                        style={{ width: "400px", margin: "10px" }}
-                        className="rounded shadow"
-                    />
-                ))}
+            <div className="grid grid-cols-1 gap-4">
+                {fileName &&
+                    visualizationUrls.map((url, index) => (
+                        <div key={index}>
+                            <img
+                                src={url} // Image URL
+                                alt={`Visualization ${index}`} // Alt text for accessibility
+                                style={{ width: "400px", margin: "10px" }}
+                                className="rounded shadow"
+                                onError={(e) => {
+                                    e.target.src = "/placeholder-image.png"; // Fallback image
+                                    e.target.alt = "Visualization not available";
+                                }}
+                            />
+                            <p>Visualization {index + 1}</p>
+                        </div>
+                    ))}
+            </div>
         </div>
     );
 };
