@@ -4,11 +4,12 @@ import FileUpload from "./components/UploadFile";
 import RunAnalysis from "./components/TriggerAnalysis";
 import VisualizationViewer from "./components/Visualization";
 
+export const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const App = () => {
     return (
         <Router>
             <div className="bg-gray-100 min-h-screen">
-                {/* Navigation Bar */}
                 <nav className="bg-blue-600 p-4 text-white shadow">
                     <ul className="flex space-x-4">
                         <li>
@@ -29,7 +30,6 @@ const App = () => {
                     </ul>
                 </nav>
 
-                {/* Main Content */}
                 <div className="container mx-auto py-8">
                     <Routes>
                         <Route path="/" element={<FileUpload />} />

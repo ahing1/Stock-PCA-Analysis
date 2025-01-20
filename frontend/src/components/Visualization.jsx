@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import { backendUrl } from "../App.jsx";
 
 const VisualizationViewer = () => {
     const [fileName, setFileName] = useState("");
 
     // Construct URLs to fetch images from the backend
     const visualizationUrls = [
-        `http://127.0.0.1:5000/visualizations/${fileName}_2D.png`,
-        `http://127.0.0.1:5000/visualizations/${fileName}_3D.png`,
-        `http://127.0.0.1:5000/visualizations/${fileName}_Portfolio.png`,
+        `${backendUrl}/visualizations/${fileName}_2D.png`,
+        `${backendUrl}/visualizations/${fileName}_3D.png`,
+        `${backendUrl}/visualizations/${fileName}_Portfolio.png`,
     ];
 
     return (

@@ -57,9 +57,9 @@ def run_analysis():
     portfolio_df.to_csv(optimized_file_path, index=False)
     
     # Perform visualizations
-    plot_clusters(clustered_file_path, os.path.join(VISUALIZATION_DIR, f"{file_name}_2D.png"))
-    plot_clusters(clustered_file_path, os.path.join(VISUALIZATION_DIR, f"{file_name}_3D.png"))
-    plot_portfolio(optimized_file_path, os.path.join(VISUALIZATION_DIR, f"{file_name}_Portfolio.png"))
+    plot_clusters(clustered_file_path)
+    plot_clusters(clustered_file_path)
+    plot_portfolio(optimized_file_path)
 
     return jsonify({"message": f"Analysis completed for {file_name}"}), 200
 
@@ -69,4 +69,5 @@ def get_visualization(filename):
     return send_from_directory(VISUALIZATION_DIR, filename)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { backendUrl } from "../App.jsx";
 
 const FileUpload = () => {
     const [file, setFile] = useState(null);
@@ -17,11 +18,10 @@ const FileUpload = () => {
         formData.append("file", file);
 
         try {
-            const response = await fetch("http://127.0.0.1:5000/upload", {
+            const response = await fetch(`${backendUrl}/upload`, {
                 method: "POST",
                 body: formData,
             });
-            console.log("response: ", response);
             const result = await response.json();
             alert(result.message || "File uploaded successfully.");
         } catch (error) {
