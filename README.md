@@ -67,33 +67,42 @@ The application includes:
    cd backend
 
 2. Create virutal environment
+    ```bash
     python -m venv venv
     source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 3. Install dependencies
+    ```bash
     pip install -r requirements.txt
 
 4. Run the backend
+    ```bash
     python app.py
 
 #### Frontend
 1. Navigate to the `frontend` folder:
+    ```bash
     cd frontend
 
 2. Install dependencies
+    ```bash
     npm install
 
 3. Start dev server
+    ```bash
     npm start
 
 #### Deployment
 1. Run docker-compose
+    ```bash
     docker-compose build
 
 2. Push images
+    ```bash
     docker-compose push
 
 3. Deploy backend using this command or deploy through console
+    ```bash
     gcloud run deploy stock-backend \
     --image gcr.io/<PROJECT-ID>/stock-backend \
     --platform managed \
@@ -101,6 +110,7 @@ The application includes:
     --allow-unauthenticated
 
 4. Deploy frontend using this command or deploy through console
+    ```bash
     gcloud run deploy stock-frontend \
     --image gcr.io/<PROJECT-ID>/stock-frontend \
     --platform managed \
